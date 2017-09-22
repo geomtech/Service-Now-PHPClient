@@ -3,7 +3,10 @@
 Great to have all your Service-Now incidents, changes, tasks etc... on a beautiful dashboard for example !
 
 ## TODO
-
+- [x] GET TableAPI
+- [ ] PUT TableAPI
+- [ ] PATCH TableAPI
+- [ ] DELETE TableAPI
 
 ## How to use Service-Now-PHPClient ?
 
