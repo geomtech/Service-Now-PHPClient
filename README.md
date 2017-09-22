@@ -2,12 +2,6 @@
 
 Great to have all your Service-Now incidents, changes, tasks etc... on a beautiful dashboard for example !
 
-## TODO
-- [x] GET TableAPI
-- [ ] PUT TableAPI
-- [ ] PATCH TableAPI
-- [ ] DELETE TableAPI
-
 ## How to use Service-Now-PHPClient ?
 
 To use Service-Now-PHPClient, you must have to declare this in your files.
@@ -42,3 +36,9 @@ if($SNClient->Authenticated()){
 Open an issue and I will correct this :)
 
 If you resolve the issue by modify code, do a pull request and add your name in comment.
+
+## TODO
+- [x] GET TableAPI
+- [ ] PUT TableAPI
+- [ ] PATCH TableAPI
+- [ ] DELETE TableAPI
