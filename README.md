@@ -29,6 +29,21 @@ if($SNClient->Authenticated()){
 }
 ```
 
+You can create record in a table ! All parameters available ! :)
+```php
+  $data_array = array(
+    'short_description' => $short_description,
+    'description' => $description,
+    'urgency' => $urgency,
+    'impact' => $impact,
+    'state' => $state,
+    'assignment_group' => $assignment_group,
+    'caller_id' => $caller_id,
+  );
+
+  $SNClient->POSTInTable("incident", $data_array);
+```
+
 **So, it's easy ? :)**
 
 ## You found a bug ?
