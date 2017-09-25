@@ -54,6 +54,7 @@ If you resolve the issue by modify code, do a pull request and add your name in 
 
 ## TODO
 - [x] GET TableAPI
+- [x] POST TableAPI
 - [ ] PUT TableAPI
 - [ ] PATCH TableAPI
 - [ ] DELETE TableAPI
