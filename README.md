@@ -29,7 +29,7 @@ if($SNClient->Authenticated()){
 }
 ```
 
-You can create record in a table ! All parameters available ! :)
+You can create record in a table ! Read the service-now doc to know all fields names.(All fields are available)
 ```php
   $data_array = array(
     'short_description' => $short_description,
