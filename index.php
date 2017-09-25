@@ -5,7 +5,7 @@
 */
 
 require_once("./SNClient/SNClient.php");
-$SNClient = new ServiceNowClient("dev39869", "david.loo", "devatgl");
+$SNClient = new ServiceNowClient($instance, $username, $password);
 
 if($SNClient->Authenticated()){
 
