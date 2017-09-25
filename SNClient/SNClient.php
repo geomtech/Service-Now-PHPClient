@@ -24,7 +24,6 @@ class ServiceNowClient
     */
     public function Authenticated(){
         if(!$this->GETFromTable("incident", "", true)){
-          echo "ServiceNow: Error Auth Login";
           return false;
         } else {
           return true;
@@ -59,6 +58,38 @@ class ServiceNowClient
       } else {
         $json = json_decode($get);
         return $json;
+      }
+    }
+
+    /* Create an new record on Service-Now
+     * $data: Array with all fields you want to insert
+     *
+     * Return false if the request have an error
+     * Return true if the request completed successfully
+    */
+    public function POSTInTable($table = "", $data)
+    {
+      $data_string = json_encode($data);
+      $url = 'https://'.$this->instance.'.service-now.com/api/now/table/'.$table;
+
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Accept: application/json',
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($data_string))
+      );
+
+      $result = curl_exec($ch);
+      $ResponseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+      if($ResponseCode == 201){
+        return true;
+      } else {
+        return false;
       }
     }
 }
