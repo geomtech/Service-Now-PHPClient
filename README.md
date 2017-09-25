@@ -22,14 +22,21 @@ Here, we verify that we can login on Service-Now and we display all number of fi
 
 ```php
 if($SNClient->Authenticated()){
-  foreach($SNClient->GETFromTable("incident", "sysparm_limit=10")->result as $incidents)
+  foreach($SNClient->RetrieveAllRecords("incident", "sysparm_limit=10")->result as $incidents)
 	{
     echo $incidents->number;
   }
 }
 ```
 
-You can create record in a table ! All parameters available ! :)
+You can get a field of an incident with his "sys_id"
+```php
+  foreach ($SNClient->RetriveRecord("incident", "9c573169c611228700193229fff72400") as $key => $value) {
+    echo $value->short_description;
+  }
+```
+
+You can create record in a table ! Read the service-now doc to know all fields names.(All fields are available)
 ```php
   $data_array = array(
     'short_description' => $short_description,
@@ -41,7 +48,7 @@ You can create record in a table ! All parameters available ! :)
     'caller_id' => $caller_id,
   );
 
-  $SNClient->POSTInTable("incident", $data_array);
+  $SNClient->CreateRecord("incident", $data_array);
 ```
 
 **So, it's easy ? :)**
@@ -54,6 +61,8 @@ If you resolve the issue by modify code, do a pull request and add your name in 
 
 ## TODO
 - [x] GET TableAPI
+- [x] GET SYS_ID TableAPI
+- [x] POST TableAPI
 - [ ] PUT TableAPI
 - [ ] PATCH TableAPI
 - [ ] DELETE TableAPI
