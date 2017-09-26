@@ -14,7 +14,8 @@ You need to use credentials to connect your website to Service-Now.
 (You have to create a generic account if possible or use a normal account. Here we used an account from a developper instance from Service-Now.)
 
 ```php
-$SNClient = new ServiceNowClient($instance, $username, $password);
+$proxy = ""; //if you don't use proxy :)
+$SNClient = new ServiceNowClient($instance, $username, $password, $proxy);
 ```
 
 Here, we verify that we can login on Service-Now and we display all number of first 10 incidents ! (see parameters on
