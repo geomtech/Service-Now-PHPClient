@@ -14,7 +14,8 @@ You need to use credentials to connect your website to Service-Now.
 (You have to create a generic account if possible or use a normal account. Here we used an account from a developper instance from Service-Now.)
 
 ```php
-$SNClient = new ServiceNowClient($instance, $username, $password);
+$proxy = ""; //if you don't use proxy :)
+$SNClient = new ServiceNowClient($instance, $username, $password, $proxy);
 ```
 
 Here, we verify that we can login on Service-Now and we display all number of first 10 incidents ! (see parameters on
@@ -63,6 +64,7 @@ If you resolve the issue by modify code, do a pull request and add your name in 
 - [x] GET TableAPI
 - [x] GET SYS_ID TableAPI
 - [x] POST TableAPI
-- [ ] PUT TableAPI
-- [ ] PATCH TableAPI
-- [ ] DELETE TableAPI
+- [x] PUT TableAPI
+- [x] PATCH TableAPI
+- [x] DELETE TableAPI
+- [x] Use Proxy
