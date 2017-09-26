@@ -64,6 +64,7 @@ If you resolve the issue by modify code, do a pull request and add your name in 
 - [x] GET TableAPI
 - [x] GET SYS_ID TableAPI
 - [x] POST TableAPI
-- [ ] PUT TableAPI
-- [ ] PATCH TableAPI
-- [ ] DELETE TableAPI
+- [x] PUT TableAPI
+- [x] PATCH TableAPI
+- [x] DELETE TableAPI
+- [x] Use Proxy
