@@ -10,14 +10,17 @@ class ServiceNowClient
     private $instance = NULL;
     private $username = NULL;
     private $password = NULL;
+    private $proxy = NULL;
 
     /* Constructor of the class
      * Required to get credentials to use authentification on Service-Now.
+     * Example: $SNClient = new ServiceNowClient();
     */
-    public function __construct($instance, $username, $password){
+    public function __construct($instance, $username, $password, $proxy){
         $this->instance = $instance;
         $this->username = $username;
         $this->password = $password;
+        $this->proxy = $proxy;
     }
 
     /* Test authentification on Service-Now by getting incident table with a limit of 1 incident.
@@ -28,6 +31,9 @@ class ServiceNowClient
 
       $ch = curl_init($RESTReq);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -60,6 +66,9 @@ class ServiceNowClient
 
       $ch = curl_init($RESTReq);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -93,6 +102,9 @@ class ServiceNowClient
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -128,6 +140,9 @@ class ServiceNowClient
 
       $ch = curl_init($RESTReq);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -162,6 +177,9 @@ class ServiceNowClient
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -196,6 +214,9 @@ class ServiceNowClient
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -228,6 +249,9 @@ class ServiceNowClient
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
+      if(!empty($this->proxy)){
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+      }
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
