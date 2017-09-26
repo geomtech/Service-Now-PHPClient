@@ -1,6 +1,7 @@
 <?php
 /* ServiceNow Client Class
- * author: Alexy DA CRUZ (GeomTech): dacruzalexy@gmail.com
+ * Copyright (c) 2017 Alexy DA CRUZ <dacruzalexy@gmail.com>
+ * All rights reserved.
  * Available on Github: https://github.com/geomtech/Service-Now-PHPClient
 */
 
